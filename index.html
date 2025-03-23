@@ -17,7 +17,7 @@
             overflow: hidden;
         }
         
-        .base-image {
+        .base-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -44,7 +44,9 @@
 </head>
 <body>
     <div class="garden-scene">
-        <img class="base-image" src="garden_image.jpeg" alt="Glass Garden">
+        <video class="base-video" autoplay loop muted playsinline>
+            <source src="garden_video.mp4" type="video/mp4">
+        </video>
         <div class="mist"></div>
         <div class="audio-player">
             <audio id="bgMusic" controls loop autoplay>
@@ -52,6 +54,7 @@
             </audio>
         </div>
     </div>
+
 
     <script>
         // 当页面加载完成后执行
