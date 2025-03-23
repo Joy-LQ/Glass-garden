@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Glass Garden</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .garden-scene {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .base-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .mist {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            opacity: 0.5;
+        }
+
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="garden-scene">
+        <img class="base-image" src="garden_image.jpeg" alt="Glass Garden">
+        <div class="mist"></div>
+        <div class="audio-player">
+            <audio id="bgMusic" controls loop autoplay>
+                <source src="Morning_Dew_in_Glass_Garden.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // 当页面加载完成后执行
+        window.addEventListener('load', function() {
+            // 获取音频元素
+            const audio = document.getElementById('bgMusic');
+            
+            // 添加点击事件监听器到整个文档
+            document.addEventListener('click', function() {
+                // 尝试播放
+                audio.play().catch(function(error) {
+                    console.log("播放失败:", error);
+                });
+            }, { once: true }); // once: true 确保事件只触发一次
+        });
+    </script>
+</body>
+</html>
